@@ -10,7 +10,9 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :payment_option
 
+  # equivalent to defining a class method self.completed which returns all Orders where the token (an attribute) is not blank or nil (the token is probably a flag to mark completed orders)
   scope :completed, where("token != ? OR token != ?", "", nil)
+  # changing the primary key for the model from id to the attribute uuid
   self.primary_key = 'uuid'
 
   # This is where we create our Caller Reference for Amazon Payments, and prefill some other information.

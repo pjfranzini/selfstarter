@@ -1,10 +1,15 @@
 class Order < ActiveRecord::Base
+  # specify a white list of attributes that can be set via mass assignment
   attr_accessible :address_one, :address_two, :city, :country, :number, :state, :status, :token, :transaction_id, :zip,
                   :shipping, :tracking_number, :name, :price, :phone, :expiration, :payment_option
+  # setup an attribute that will be used when creating a new record, but will be ignored by updates
   attr_readonly :uuid
+  # when creating a new order, before validating, call the method to generate the :uuid attribute
   before_validation :generate_uuid!, :on => :create
+  # an Order belongs to a user and belongs to a payment option (model associations)
   belongs_to :user
   belongs_to :payment_option
+
   scope :completed, where("token != ? OR token != ?", "", nil)
   self.primary_key = 'uuid'
 
@@ -75,7 +80,7 @@ class Order < ActiveRecord::Base
       PaymentOption.joins(:orders).where("token != ? OR token != ?", "", nil).pluck('sum(amount)')[0].to_f
     else
       Order.completed.sum(:price).to_f
-    end 
+    end
   end
 
   validates_presence_of :name, :price, :user_id

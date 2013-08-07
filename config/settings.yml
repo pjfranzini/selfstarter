@@ -7,22 +7,22 @@
 
 # Set your project goal here - dollar amount
 # NOTE: if you manually want to adjust your progress to test the site, head over to the Order model (app/models/order.rb)
-project_goal: 100000
+project_goal: 80000
 
 # If you want to edit the FAQ, head over to app/views/preorder/homepage/_faqs.html.erb
 
 # This'll be both the page title (<title></title>) and the name in the header
-product_name: "Selfstarter"
+product_name: "HackerStarter"
 
 # This will be used in sentences like Hooray You've just reserved product_description
-product_description: "a set of widgets"
+product_description: "a set of hackers"
 
 # An image showcasing your product -- it'll show up when you pin your product
 # It should be in app/assets/images
 product_image_path: "my-product-image.png"
 
 # The message on the preorder page, Lockitron's is ""
-value_proposition: "Roll your own crowdfunding"
+value_proposition: "Start Hacking Now!"
 
 # YouTube or Vimeo Video URL (The embed URL, without the query string options)
 # Replace /embed/ in your video url path with /v/ for video playback to work.

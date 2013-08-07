@@ -5,6 +5,7 @@ class Order < ActiveRecord::Base
   # setup an attribute that will be used when creating a new record, but will be ignored by updates
   attr_readonly :uuid
   # when creating a new order, before validating, call the method to generate the :uuid attribute
+  # (universally unique identifier)
   before_validation :generate_uuid!, :on => :create
   # an Order belongs to a user and belongs to a payment option (model associations)
   belongs_to :user

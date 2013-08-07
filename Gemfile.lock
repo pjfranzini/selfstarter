@@ -159,7 +159,7 @@ DEPENDENCIES
   json (~> 1.7.7)
   pg
   pry-rails
-  rails (= 3.2.13)
+  rails
   rails_config
   rspec-rails (~> 2.0)
   sass-rails (~> 3.2.3)
